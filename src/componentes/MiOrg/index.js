@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./MiOrg.css";
 const MiOrg = (props) => {
   //const [nombreVariable, funcionActualiza] = useState(valorInicial);
-  console.log(props);
   //const [mostrar, actualizarMostrar] = useState(true);
   // const manejarClick = () => {
   //   console.log("Mostrar/Ocultar Formulario");
