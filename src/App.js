@@ -8,7 +8,80 @@ import Footer from "./componentes/Footer";
 
 function App() {
   const [mostrarFormulario, actualizarMostrar] = useState(false);
-  const [colaboradores, actualizarColaboradores] = useState([]);
+  const [colaboradores, actualizarColaboradores] = useState([
+    {
+      equipo: "Programación",
+      foto: "http://github.com/JHect0r.png",
+      nombre: "Hector",
+      puesto: "Programador",
+    },
+    {
+      equipo: "Programación",
+      foto: "http://github.com/JHect0r.png",
+      nombre: "Hector",
+      puesto: "Programador",
+    },
+    {
+      equipo: "Programación",
+      foto: "http://github.com/JHect0r.png",
+      nombre: "Hector",
+      puesto: "Programador",
+    },
+    {
+      equipo: "Front End",
+      foto: "http://github.com/JHect0r.png",
+      nombre: "Hector",
+      puesto: "Programador",
+    },
+    {
+      equipo: "Front End",
+      foto: "http://github.com/JHect0r.png",
+      nombre: "Hector",
+      puesto: "Programador",
+    },
+    {
+      equipo: "Front End",
+      foto: "http://github.com/JHect0r.png",
+      nombre: "Hector",
+      puesto: "Programador",
+    },
+    {
+      equipo: "Data Science",
+      foto: "http://github.com/JHect0r.png",
+      nombre: "Hector",
+      puesto: "Programador",
+    },
+    {
+      equipo: "Data Science",
+      foto: "http://github.com/JHect0r.png",
+      nombre: "Hector",
+      puesto: "Programador",
+    },
+    {
+      equipo: "Data Science",
+      foto: "http://github.com/JHect0r.png",
+      nombre: "Hector",
+      puesto: "Programador",
+    },
+    {
+      equipo: "Devops",
+      foto: "http://github.com/JHect0r.png",
+      nombre: "Hector",
+      puesto: "Programador",
+    },
+    {
+      equipo: "Devops",
+      foto: "http://github.com/JHect0r.png",
+      nombre: "Hector",
+      puesto: "Programador",
+    },
+    {
+      equipo: "Devops",
+      foto: "http://github.com/JHect0r.png",
+      nombre: "Hector",
+      puesto: "Programador",
+    },
+  ]);
   //Ternario --> Condicion ? seMuestra : noSeMuestra
   // condicion && seMuestra
   const cambiarMostrar = () => {
@@ -20,6 +93,11 @@ function App() {
     console.log("Registrar colabor", colaborador);
     //Spread operador
     actualizarColaboradores([...colaboradores, colaborador]);
+  };
+
+  //Eliminar Colaborador
+  const eliminarColaborador = () => {
+    console.log("Eliminar colaborador");
   };
 
   //Lista de equipos
@@ -80,6 +158,7 @@ function App() {
           colaboradores={colaboradores.filter(
             (colaborador) => colaborador.equipo === equipo.titulo
           )}
+          eliminarColaborador={eliminarColaborador}
         />
       ))}
       <Footer />
