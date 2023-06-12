@@ -3,7 +3,7 @@ import "./Equipo.css";
 import hexToRgba from "hex-to-rgba";
 const Equipo = (props) => {
   //destructuracion
-  const { colorPrimario, colorSecundario, titulo } = props.datos;
+  const { colorPrimario, colorSecundario, titulo, id } = props.datos;
   const { colaboradores, eliminarColaborador, actualizarColor } = props;
 
   const obj = {
@@ -23,7 +23,7 @@ const Equipo = (props) => {
             className="input-color"
             value={colorPrimario}
             onChange={(evento) => {
-              actualizarColor(evento.target.value, titulo);
+              actualizarColor(evento.target.value, id);
             }}
           />
           <h3 style={estiloTitulo}>{titulo}</h3>
