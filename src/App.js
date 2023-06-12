@@ -82,26 +82,8 @@ function App() {
       puesto: "Programador",
     },
   ]);
-  //Ternario --> Condicion ? seMuestra : noSeMuestra
-  // condicion && seMuestra
-  const cambiarMostrar = () => {
-    actualizarMostrar(!mostrarFormulario);
-  };
 
-  //Registrar colaborador
-  const registrarColaborador = (colaborador) => {
-    console.log("Registrar colabor", colaborador);
-    //Spread operador
-    actualizarColaboradores([...colaboradores, colaborador]);
-  };
-
-  //Eliminar Colaborador
-  const eliminarColaborador = () => {
-    console.log("Eliminar colaborador");
-  };
-
-  //Lista de equipos
-  const equipos = [
+  const [equipos, actualizarEquipos] = useState([
     {
       titulo: "Programación",
       colorPrimario: "#57C278",
@@ -137,7 +119,38 @@ function App() {
       colorPrimario: "#FF8A29",
       colorSecundario: "#FFEEDF",
     },
-  ];
+  ]);
+
+  //Ternario --> Condicion ? seMuestra : noSeMuestra
+  // condicion && seMuestra
+  const cambiarMostrar = () => {
+    actualizarMostrar(!mostrarFormulario);
+  };
+
+  //Registrar colaborador
+  const registrarColaborador = (colaborador) => {
+    console.log("Registrar colabor", colaborador);
+    //Spread operador
+    actualizarColaboradores([...colaboradores, colaborador]);
+  };
+
+  //Eliminar Colaborador
+  const eliminarColaborador = () => {
+    console.log("Eliminar colaborador");
+  };
+
+  //Actualizar color
+  const actualizarColor = (color, titulo) => {
+    console.log("Actualizar color: ", color, titulo);
+    const equiposActualizados = equipos.map((equipo) => {
+      if (equipo.titulo === titulo) {
+        equipo.colorPrimario = color;
+      }
+      return equipo;
+    });
+    actualizarEquipos(equiposActualizados);
+  };
+
   return (
     <div>
       <Header />
@@ -159,6 +172,7 @@ function App() {
             (colaborador) => colaborador.equipo === equipo.titulo
           )}
           eliminarColaborador={eliminarColaborador}
+          actualizarColor={actualizarColor}
         />
       ))}
       <Footer />
