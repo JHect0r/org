@@ -16,20 +16,7 @@ function App() {
       foto: "http://github.com/JHect0r.png",
       nombre: "Hector",
       puesto: "Programador",
-    },
-    {
-      id: uuid(),
-      equipo: "Programación",
-      foto: "http://github.com/JHect0r.png",
-      nombre: "Hector",
-      puesto: "Programador",
-    },
-    {
-      id: uuid(),
-      equipo: "Programación",
-      foto: "http://github.com/JHect0r.png",
-      nombre: "Hector",
-      puesto: "Programador",
+      fav: true,
     },
     {
       id: uuid(),
@@ -37,20 +24,7 @@ function App() {
       foto: "http://github.com/JHect0r.png",
       nombre: "Hector",
       puesto: "Programador",
-    },
-    {
-      id: uuid(),
-      equipo: "Front End",
-      foto: "http://github.com/JHect0r.png",
-      nombre: "Hector",
-      puesto: "Programador",
-    },
-    {
-      id: uuid(),
-      equipo: "Front End",
-      foto: "http://github.com/JHect0r.png",
-      nombre: "Hector",
-      puesto: "Programador",
+      fav: false,
     },
     {
       id: uuid(),
@@ -58,20 +32,7 @@ function App() {
       foto: "http://github.com/JHect0r.png",
       nombre: "Hector",
       puesto: "Programador",
-    },
-    {
-      id: uuid(),
-      equipo: "Data Science",
-      foto: "http://github.com/JHect0r.png",
-      nombre: "Hector",
-      puesto: "Programador",
-    },
-    {
-      id: uuid(),
-      equipo: "Data Science",
-      foto: "http://github.com/JHect0r.png",
-      nombre: "Hector",
-      puesto: "Programador",
+      fav: false,
     },
     {
       id: uuid(),
@@ -79,20 +40,7 @@ function App() {
       foto: "http://github.com/JHect0r.png",
       nombre: "Hector",
       puesto: "Programador",
-    },
-    {
-      id: uuid(),
-      equipo: "Devops",
-      foto: "http://github.com/JHect0r.png",
-      nombre: "Hector",
-      puesto: "Programador",
-    },
-    {
-      id: uuid(),
-      equipo: "Devops",
-      foto: "http://github.com/JHect0r.png",
-      nombre: "Hector",
-      puesto: "Programador",
+      fav: false,
     },
   ]);
 
@@ -181,6 +129,18 @@ function App() {
     actualizarEquipos([...equipos, { ...nuevoEquipo, id: uuid() }]);
   };
 
+  //Like
+  const like = (id) => {
+    console.log("Like ", id);
+    const colaboradoresActualizados = colaboradores.map((colaborador) => {
+      if (colaborador.id === id) {
+        colaborador.fav = !colaborador.fav;
+      }
+      return colaborador;
+    });
+    actualizarColaboradores(colaboradoresActualizados);
+  };
+
   return (
     <div>
       <Header />
@@ -204,6 +164,7 @@ function App() {
           )}
           eliminarColaborador={eliminarColaborador}
           actualizarColor={actualizarColor}
+          like={like}
         />
       ))}
       <Footer />
